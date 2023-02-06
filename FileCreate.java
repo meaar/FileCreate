@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 
 public class FileCreate {
     private String fileName;
@@ -31,6 +32,11 @@ public class FileCreate {
                 this.file.mkdirs();
                 this.file = new File(this.filePath+"/"+this.fileName);
             }
+        }
+        try {
+            this.file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
