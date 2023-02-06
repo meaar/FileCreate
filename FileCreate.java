@@ -23,6 +23,15 @@ public class FileCreate {
                 }
             }
         }
+        if (this.filePath.isEmpty()) {
+            this.file = new File(this.fileName);
+        } else {
+            this.file = new File(this.filePath);
+            if (!this.file.isDirectory()) {
+                this.file.mkdirs();
+                this.file = new File(this.filePath+"/"+this.fileName);
+            }
+        }
     }
 
     public String getFilePath() {
